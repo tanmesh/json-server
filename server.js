@@ -7,7 +7,12 @@ const router = jsonServer.router("revision-list.json");
 // Make sure to use the default middleware
 const middlewares = jsonServer.defaults();
 
-server.use(cors());
+server.use(cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
+  
 server.use(middlewares);
 // Add this before server.use(router)
 server.use(
